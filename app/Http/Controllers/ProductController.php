@@ -23,6 +23,7 @@ class ProductController extends Controller
       $name = $request->name;
       $price =$request->price;
       $description =$request->description;
+      $image =$request->image;
       
       // dd($name,$price,$description);
 
@@ -36,9 +37,11 @@ class ProductController extends Controller
       $product = Product::create([
          'name'=>$request->name,
          'price'=>$request->price,
-         'description'=>$request->description
+         'description'=>$request->description,
+         'image'=> $request->file('image')->store('public/image')
       
       ]);
+
       return redirect()->route('homePage')->with('message','prodotto memorizzato con successo');
      
       }

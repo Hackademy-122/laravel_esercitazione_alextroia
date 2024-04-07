@@ -12,7 +12,7 @@
     <div class="container mt-5">    
         <div class="row justify-content-center p-5">
             <div class="col-12 col-md-8 shadow">
-                <form method="POST" action="{{route('storeProduct')}}">
+                <form method="POST" action="{{route('storeProduct')}}" enctype="multipart/form-data">
 
                     @csrf
 
@@ -27,6 +27,10 @@
                     <div class="mb-3">
                         <label for="InputDescription" class="form-label">Descrizione prodotto</label>
                         <textarea name="description" id="InputDescription" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputImage" class="form-label">Immagine:</label>
+                        <input name="image" type="file" class="form-control" id="inputImage" aria-describedby="imageHelp">
                     </div>
 
                     <button type="submit" class="btn btn-primary">Crea Prodotto</button>
